@@ -25,37 +25,51 @@ const request = require('request');
 //     console.log(error || temp)
 // })
 
-function cong(a , b , cb){
+function cong(a , b ){
+  return new Promise((resolve,reject) => {
     const URL = `https://pheptinhonline.herokuapp.com/cong/${a}/${b}`
     request(URL ,{json : true} , function (error, response, body) {
-      if (error) return cb(error)
-      if (!body.success) return cb(body.message)
-      cb(null , body.message)
+      if (error) return reject(error)
+      if (!body.success) return reject(body.message)
+      resolve(body.message)
     });
+  })
 }
-function tru(a , b , cb){
+function tru(a , b ){
+  return new Promise((resolve,reject) => {
     const URL = `https://pheptinhonline.herokuapp.com/tru/${a}/${b}`
     request(URL ,{json : true} , function (error, response, body) {
-      if (error) return cb(error)
-      if (!body.success) return cb(body.message)
-      cb(null , body.message)
+      if (error) return reject(error)
+      if (!body.success) return reject(body.message)
+      resolve(body.message)
     });
+  })
 }
 function nhan(a , b , cb){
+  return new Promise((resolve,reject) => {
     const URL = `https://pheptinhonline.herokuapp.com/nhan/${a}/${b}`
     request(URL ,{json : true} , function (error, response, body) {
-      if (error) return cb(error)
-      if (!body.success) return cb(body.message)
-      cb(null , body.message)
+      if (error) return reject(error)
+      if (!body.success) return reject(body.message)
+      resolve(body.message)
     });
+  })
 }
 function chia(a , b , cb){
+  return new Promise((resolve,reject) => {
     const URL = `https://pheptinhonline.herokuapp.com/chia/${a}/${b}`
     request(URL ,{json : true} , function (error, response, body) {
-      if (error) return cb(error)
-      if (!body.success) return cb(body.message)
-      cb(null , body.message)
+      if (error) return reject(error)
+      if (!body.success) return reject(body.message)
+      resolve(body.message)
     });
+  })
 }
 
-// cong( 3 , 5 , (error , result) => console.log(error || result))
+// (3 + 2) * 2
+cong(3 , 2)
+.then(tong => nhan(tong , 2))
+.then(tich => console.log(tich))
+.catch(error => console.log(error))
+
+// 5 - 4 + 1 / 2 
