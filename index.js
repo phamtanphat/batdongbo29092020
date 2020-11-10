@@ -67,9 +67,46 @@ function chia(a , b , cb){
 }
 
 // (3 + 2) * 2
-cong(3 , 2)
-.then(tong => nhan(tong , 2))
-.then(tich => console.log(tich))
-.catch(error => console.log(error))
+// cong(3 , 2)
+// .then(tong => nhan(tong , 2))
+// .then(tich => console.log(tich))
+// .catch(error => console.log(error))
 
 // 5 - 4 + 1 / 2 
+
+// tru(5 , 4)
+// .then(hieu => cong(hieu , 1))
+// .then(tong => chia(tong , 2))
+// .then(thuong => console.log(thuong))
+// .catch(error => console.log(error))
+
+async function xuly(){
+    try {
+      const hieu  = await tru("a" , 4)
+      console.log(hieu)
+    } catch (error) {
+      console.log(error)
+    }
+   
+}
+xuly()
+
+// const promise1 = Promise.resolve(3);
+// const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+// const promises = [promise1, promise2];
+
+// Promise.allSettled(promises).
+//   then((results) => results.forEach((result) => console.log(result.status)));
+
+// const promise1 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 500, 'one');
+// });
+
+// const promise2 = new Promise((resolve, reject) => {
+//   setTimeout(resolve, 100, 'two');
+// });
+
+// Promise.race([promise1, promise2]).then((value) => {
+//   console.log(value);
+//   // Both resolve, but promise2 is faster
+// });
